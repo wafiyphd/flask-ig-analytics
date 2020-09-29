@@ -35,7 +35,6 @@
                   <tr>
                     <th scope="col" style="width: 1%"></th>
                     <th scope="col">Date</th>
-                    <th scope="col" style="width: 5%">Time</th>
                     <th scope="col" style="width: 5%">Following</th>
                     <th scope="col" style="width: 5%">Followers</th>
                     <th scope="col" style="width: 5%">No. of Posts</th>
@@ -54,9 +53,6 @@
                     <td>
                         {{ moment(stat.date).format('LL') }}
                     </td>
-                    <td>
-                      {{ moment(stat.time).format('hh:mm A') }}
-                  </td>
                     <td>
                         {{stat.numFollowing }}
                     </td>

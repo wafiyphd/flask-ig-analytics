@@ -1,7 +1,17 @@
 from app.models import DailyFetch, FetchLog
-from datetime import datetime
+from datetime import datetime, timedelta, date
 from app import db, getCreds
 import os, requests, json, asyncio, aiohttp
+
+today = date.today()
+now = datetime.today().time()
+dailyStatsCutoff = now.replace(hour=15, minute=00, second=00)
+if (now < dailyStatsCutoff):
+    yesterday = today - timedelta(days=2)
+    print("two")
+else:
+    yesterday = today - timedelta(days=1)
+    print("one")
 
 params = getCreds()
 
@@ -22,8 +32,11 @@ async def DailyInfoFetch(session):
     async with session.get(insighturl) as insightresponse:
         dailyInsights = await insightresponse.json()
 
-    now = datetime.utcnow()
-    data = DailyFetch(now.date(), now.strftime("%H:%M:%S"), int(accountInfo['business_discovery']['follows_count']), int(accountInfo['business_discovery']['followers_count']), int(accountInfo['business_discovery']['media_count']), int(dailyInsights['data'][3]['values'][1]['value']), int(dailyInsights['data'][0]['values'][1]['value']), int(dailyInsights['data'][2]['values'][1]['value']), int(dailyInsights['data'][1]['values'][1]['value']))
+    today = date.today()
+    yesterday = today - timedelta(days=1)
+    nowtime = datetime.utcnow()
+
+    data = DailyFetch(yesterday, now.strftime("%H:%M:%S"), int(accountInfo['business_discovery']['follows_count']), int(accountInfo['business_discovery']['followers_count']), int(accountInfo['business_discovery']['media_count']), int(dailyInsights['data'][3]['values'][1]['value']), int(dailyInsights['data'][0]['values'][1]['value']), int(dailyInsights['data'][2]['values'][1]['value']), int(dailyInsights['data'][1]['values'][1]['value']))
 
     try:
         db.session.add(data)

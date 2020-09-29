@@ -12,7 +12,9 @@
             <h6 class="h2 main-title d-inline-block mb-0">Memori Analytics</h6>
             <h6 class="text-uppercase ls-1 mb-1">Home</h6>
           </div>
-          <div class="col-lg-6 col-5 text-right">
+          <div class="col-lg-6 col-5 text-right ls-1">
+            <br>
+            <b>Daily insights data latest as of:</b> {{ moment(latestdaily.timestamp).format('LL') }} {{ moment(latestdaily.timestamp).format('hh:mm A') }}
           </div>
         </div>
 
@@ -134,7 +136,7 @@
             <div class="row align-items-center">
               <div class="col">
                 <h3 class="mb-0 thick-heading">Recent Posts</h3>
-                <h6 class="ls-1 mb-1">10 most recent posts</h6>
+                Recent posts data latest as of: {{ moment(latestrecent.timestamp).format('LL') }} {{ moment(latestrecent.timestamp).format('hh:mm A') }}
               </div>
               <div class="col text-right">
                 <a href="/allposts" class="btn btn-sm btn-primary">View all posts</a>

@@ -27,6 +27,9 @@ def index():
     recentInsights = AllPosts.query.order_by(AllPosts.timestamp.desc()).limit(10).all()
     recentHooks = Webhooks.query.order_by(Webhooks.timestamp.desc()).limit(6).all()
     yesterdaystats = DailyFetch.query.filter(DailyFetch.date == yesterday).first()
+
+    latestdaily = FetchLog.query.filter(FetchLog.fetch_type == 'Account Info').order_by(FetchLog.timestamp.desc()).first()
+    latestrecent = FetchLog.query.filter(FetchLog.fetch_type == 'Recent Insights').order_by(FetchLog.timestamp.desc()).first()
         
     return render_template('index.html', 
         bd=latestInfo, 
@@ -35,18 +38,23 @@ def index():
         yesterdayStats = yesterdaystats,
         message=request.args.get('message'), 
         alerttype=request.args.get('alerttype'),
-        title='Home'
+        title='Home',
+        latestdaily = latestdaily,
+        latestrecent = latestrecent
     )
 
 @app.route('/allposts/')
 def allposts():
 
         allPosts = AllPosts.query.order_by(AllPosts.timestamp.desc()).all()
+        latestall = FetchLog.query.filter(FetchLog.fetch_type == 'All Insights').order_by(FetchLog.timestamp.desc()).first()
+
         return render_template('allposts.html', 
             allPosts=allPosts,
             message=request.args.get('message'), 
             alerttype=request.args.get('alerttype'),
-            title='Posts'
+            title='Posts',
+            latestall= latestall
         )
 
 @app.route('/allstory/')
