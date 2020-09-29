@@ -31,17 +31,17 @@
                 <a href="/fetch_account_info/" class="btn btn-sm btn-fetch">Fetch Latest Daily Account Info and Insights</a>
                 Fetch daily account info including profile insights, such as daily visits, impressions, etc. as well as the latest profile picture, biography, etc. End of the day
                 or the daily stats resets, are set at 3PM GMT+8<br><br>
-                <b>Data latest as of:</b> {{ latestdaily.timestamp.strftime('%Y-%m-%d') }} {{ latestdaily.timestamp.strftime('%I:%M %p') }}
+                <b>Data latest as of:</b> {{ moment(latestdaily.timestamp).format('LL') }}</b> {{ moment(latestdaily.timestamp).format('hh:mm A') }}
                 <hr class="my-3">
 
                 <a href="/fetch_recent" class="btn btn-sm btn-fetch">Fetch Recent Posts and Insights</a>
                 Fetch ten of the latest posts from the account, along with their insights, such as impressions, engagement, reach, etc. Better option for regular fetch than fetching all posts' insights.<br><br>
-                <b>Data latest as of:</b> {{ latestrecent.timestamp.strftime('%Y-%m-%d') }} {{ latestrecent.timestamp.strftime('%I:%M %p') }}
+                <b>Data latest as of:</b> {{ moment(latestrecent.timestamp).format('LL') }}</b> {{ moment(latestrecent.timestamp).format('hh:mm A') }}
                 <hr class="my-3">
 
                 <a href="/fetch_all" class="btn btn-sm btn-fetch">Fetch All Posts and Insights</a>
                 Fetch all of the posts from the account, along with their insights, such as impressions, engagement, reach, etc. This process will take at least around 1:30-2 minutes.<br><br>
-                <b>Data latest as of:</b> {{ latestall.timestamp.strftime('%Y-%m-%d') }} {{ latestall.timestamp.strftime('%I:%M %p') }}
+                <b>Data latest as of:</b> {{ moment(latestall.timestamp).format('LL') }}</b> {{ moment(latestall.timestamp).format('hh:mm A') }}
             </div>
         </div>
       </div>
