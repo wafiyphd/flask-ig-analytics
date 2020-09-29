@@ -177,7 +177,7 @@ def respond():
                                 exits, replies)  
                     db.session.add(data)
                     db.session.commit()
-                    data = Webhooks(dt, "Story", 0, "", 0, media_id)
+                    data = Webhooks(time, "Story", 0, "", 0, media_id)
                     db.session.add(data)
                     db.session.commit()
                     print('Successful webhook')
