@@ -133,8 +133,7 @@ def respond():
         print('-----------')
         response = request.json
         for entry in response['entry']:
-            time = datetime.fromtimestamp(entry['time']).strftime('%Y-%m-%d %H:%M:%S')
-            dt = datetime.strptime(time, "%Y-%m-%d %H:%M:%S")
+            time = datetime.utcnow()
             contentReceived = entry['changes'][0]['field']
             print(entry['changes'][0]['value'])
 
