@@ -9,19 +9,19 @@ import scriptAccountInfo as fetchInfo
 import scriptRecentInsights as fetchRecentPosts
 import scriptAllInsights as fetchAllPosts
 
-today = date.today()
-now = datetime.today().time()
-dailyStatsCutoff = now.replace(hour=15, minute=00, second=00)
-if (now < dailyStatsCutoff):
-    yesterday = today - timedelta(days=2)
-    print("two")
-else:
-    yesterday = today - timedelta(days=1)
-    print("one")
-
 @app.route('/')
 @app.route('/index')
 def index():
+    
+    today = date.today()
+    now = datetime.today().time()
+    dailyStatsCutoff = now.replace(hour=7, minute=00, second=00)
+    if (now < dailyStatsCutoff):
+        yesterday = today - timedelta(days=2)
+        print("two")
+    else:
+        yesterday = today - timedelta(days=1)
+        print("one")
 
     latestInfo = AccountInfo.query.order_by(AccountInfo.date.desc(), AccountInfo.time.desc()).first()
     recentInsights = AllPosts.query.order_by(AllPosts.timestamp.desc()).limit(10).all()
