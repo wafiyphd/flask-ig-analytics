@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="main-content" id="panel">
+    <div class="header pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+            {% if message != None and message != "" %}
+            <div class="col-lg-12 d-flex justify-content-center">
+              <div class=" alert alert-box-s alert-{{alerttype}} alert-dismissable text-center">
+              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                {{ message }}
+              </div>
+            </div>
+            {% endif %}
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 main-title d-inline-block mb-0">Memori Analytics</h6>
+              <h6 class="text-uppercase ls-1 mb-1">Fetch Data</h6>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col-lg-6 container fetch-container p-3 border">
+            <div class= "content justify-content-center">
+                <a href="/fetch_account_info/" class="btn btn-sm btn-fetch">Fetch Latest Daily Account Info and Insights</a>
+                Fetch daily account info including profile insights, such as daily visits, impressions, etc. as well as the latest profile picture, biography, etc. End of the day
+                or the daily stats resets, are set at 3PM GMT+8<br><br>
+                <b>Data latest as of:</b> {{ latestdaily.timestamp.strftime('%Y-%m-%d') }} {{ latestdaily.timestamp.strftime('%I:%M %p') }}
+                <hr class="my-3">
+
+                <a href="/fetch_recent" class="btn btn-sm btn-fetch">Fetch Recent Posts and Insights</a>
+                Fetch ten of the latest posts from the account, along with their insights, such as impressions, engagement, reach, etc. Better option for regular fetch than fetching all posts' insights.<br><br>
+                <b>Data latest as of:</b> {{ latestrecent.timestamp.strftime('%Y-%m-%d') }} {{ latestrecent.timestamp.strftime('%I:%M %p') }}
+                <hr class="my-3">
+
+                <a href="/fetch_all" class="btn btn-sm btn-fetch">Fetch All Posts and Insights</a>
+                Fetch all of the posts from the account, along with their insights, such as impressions, engagement, reach, etc. This process will take at least around 1:30-2 minutes.<br><br>
+                <b>Data latest as of:</b> {{ latestall.timestamp.strftime('%Y-%m-%d') }} {{ latestall.timestamp.strftime('%I:%M %p') }}
+            </div>
+        </div>
+      </div>
+
+{% endblock %}

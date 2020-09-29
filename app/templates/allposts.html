@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="main-content" id="panel">
+    <div class="header pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 main-title d-inline-block mb-0">Memori Analytics</h6>
+              <h6 class="text-uppercase ls-1 mb-1">View All Posts</h6>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row">
+                <div class="col-md-6">
+                  <h3 class="mb-0 thick-heading text-left">All Posts</h3>
+                  <h6 class="ls-1 mb-1">Showing all posts, excluding IGTV posts</h6>
+                </div>
+                <div class="col-md-6 d-flex justify-content-end">
+                  <a id="thumbnail-toggle" class="btn btn-table btn-sm">Toggle show thumbnail</a>
+                  <br> 
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive-sm">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush table-sm fixed-table  table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 1%">No</th>
+                    <th scope="col" style="width: 8%"></th>
+                    <th scope="col">Timestamp</th>
+                    <th scope="col" style="width: 5%">Type</th>
+                    <th scope="col" style="width: 5%">Category</th>
+                    <th scope="col" style="width: 5%">Likes</th>
+                    <th scope="col" style="width: 5%">Comments</th>
+                    <th id="sl" scope="col" style="width: 5%">Engagement</th>
+                    <th id="nm" scope="col" style="width: 5%">Impressions</th>
+                    <th scope="col" style="width: 5%">Reaches</th>
+                    <th scope="col" style="width: 5%">Saves</th>
+                    <th scope="col" style="width: 5%">Video Views</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% set count = namespace(value=1) %}
+                  {% for post in allPosts %}
+                  <tr>
+                    <td>
+                      {{ count.value }}
+                      {% set count.value = count.value + 1 %}
+                    </td>
+                    <td>
+                      {% if post.media_type == 'IMAGE' or post.media_type == 'CAROUSEL_ALBUM' %}
+                      <a href="{{ post.permalink }}" target="_blank"><img src="{{ post.media_url }}"
+                          class="rounded img-fluid float-left content_section"></a>
+                      {% else %}
+                      <a href="{{ post.permalink }}" target="_blank"><img src="{{ post.thumbnail_url }}"
+                          class="rounded img-fluid float-left content_section"></a>
+                      {% endif %}
+                    </td>
+                    <td>
+                      <a href="{{ post.permalink }}" target=”_blank><b>{{ moment(post.timestamp).format('LL') }}</b> {{ moment(post.timestamp).format('hh:mm A') }}</a>
+                    </td>
+                    <td>
+                      {{post.media_type}}
+                    </td>
+                    <td>
+                      {{post.category.upper() }}
+                    </td>
+                    <td>
+                      {{post.count_like}}
+                    </td>
+                    <td>
+                      {{post.count_comments}}
+                    </td>
+                    <td>
+                      {{post.count_engagement}}
+                    </td>
+                    <td>
+                      {{post.count_impressions}}
+                    </td>
+                    <td>
+                      {{post.count_reach}}
+                    </td>
+                    <td>
+                      {{post.count_saved}}
+                    </td>
+                    {% if post.media_type == 'VIDEO' %}
+                    <td>
+                      {{post.count_video_views}}
+                    </td>
+                    {% else %}
+                      <td></td>
+                    {% endif %}
+                  </tr>
+
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

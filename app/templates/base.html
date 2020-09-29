@@ -1,0 +1,120 @@
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/index.css" />
+    <link rel="stylesheet" href="../static/argon.css" />
+    <link rel="shortcut icon" href="../static/favicon.ico">
+    {% if title %}
+    <title>{{ title }} - Memori Analytics</title>
+    {% else %}
+    <title>Memori Analytics!</title>
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+    integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous">
+    </script>
+    <script src="https://use.fontawesome.com/027ece2474.js"></script>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap"
+    rel="stylesheet">
+    {{ moment.include_moment() }}
+    <script>
+        $(document).ready(
+          function () {
+            $("#thumbnail-toggle").click(function () {
+              if ($('.content_section').css("display") == "block") {
+                $(".content_section").css({
+                  "display": "none"
+                });
+              } else {
+                $(".content_section").css({
+                  "display": "block"
+                });
+              }
+              console.log("clicked")
+            });
+          })
+    </script>
+</head>
+
+<body>
+    <nav class="sidenav navbar navbar-vertical  fixed-left  navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+        <div class="scrollbar-inner">
+            <!-- Brand -->
+            <div class="sidenav-header  align-items-center">
+                <a class="navbar-brand" href="/">
+                    <img src="../static/memori.png" class="navbar-brand-img" alt="memori_logo">
+                </a>
+            </div>
+            <div class="navbar-inner">
+            <!-- Collapse -->
+                <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+                    <!-- Nav items -->
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class='{{"nav-link active" if title == "Home" else "nav-link"}}' href="/">
+                        <i class="ni ni-tv-2 text-primary"></i>
+                        <span class="nav-link-text">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class='{{"nav-link active" if title == "Posts" else "nav-link"}}' href="/allposts">
+                        <i class="ni ni-tv-2 text-primary"></i>
+                        <span class="nav-link-text">All Posts</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class='{{"nav-link active" if title == "Story" else "nav-link"}}' href="/allstory">
+                        <i class="ni ni-tv-2 text-primary"></i>
+                        <span class="nav-link-text">All Story</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class='{{"nav-link active" if title == "Daily Stats" else "nav-link"}}' href="/dailystats">
+                        <i class="ni ni-tv-2 text-primary"></i>
+                        <span class="nav-link-text">Daily Stats</span>
+                        </a>
+                    </li>
+                    </ul>
+                    <!-- Divider -->
+                    <hr class="my-3">
+                    <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class='{{"nav-link active" if title == "Fetch" else "nav-link"}}' href="/fetchdata">
+                        <i class="ni ni-tv-2 text-primary"></i>
+                        <span class="nav-link-text">Fetch Data</span>
+                        </a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% block content %}{% endblock %}
+
+    <footer class="footer pt-0 ">
+        <div class="row align-items-center justify-content-lg-between">
+            <div class="col-lg-6">
+                <div class="copyright text-center  text-lg-left  text-muted">
+                    &copy; 2020 Memori
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+</div>
+</body>
+
+</html>

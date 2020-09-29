@@ -1,0 +1,358 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="main-content" id="panel">
+  <!-- Header -->
+  <div class="header pb-6">
+    <div class="container-fluid">
+      <div class="header-body">
+        <div class="row align-items-center py-4">
+          
+          <div class="col-lg-6 col-7">
+            <h6 class="h2 main-title d-inline-block mb-0">Memori Analytics</h6>
+            <h6 class="text-uppercase ls-1 mb-1">Home</h6>
+          </div>
+          <div class="col-lg-6 col-5 text-right">
+          </div>
+        </div>
+
+        <!-- Card stats -->
+        <div class="row">
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">LATEST NO.</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">Following</h5>
+                    <span class="h2 less-black">{{ bd.numFollowing }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <br>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">LATEST NO.</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">Followers</h5>
+                    <span class="h2 less-black">{{ bd.numFollowers }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <span class="text-nowrap"><b>{{ bd.numDailyFollowers }}</b> New Followers In the past day</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">LATEST NO.</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">Posts</h5>
+                    <span class="h2 mb-0 less-black">{{ bd.numPosts }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <br>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">DAILY</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">Profile Visits</h5>
+                    <span class="h2 mb-0 less-black">{{ bd.numDailyVisits }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <span class="text-nowrap"><br></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">DAILY</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">Reach</h5>
+                    <span class="h2 mb-0 less-black">{{ bd.numDailyReach }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <span class="text-nowrap"><br></span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">DAILY</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">Impressions</h5>
+                    <span class="h2 mb-0 less-black">{{ bd.numDailyImpressions }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <span class="text-nowrap"><br></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--6 min-vh-100">
+    <div class="row">
+
+      <div class="col-xl-8">
+        <div class="card">
+          <div class="card-header border-0">
+            <div class="row align-items-center">
+              <div class="col">
+                <h3 class="mb-0 thick-heading">Recent Posts</h3>
+                <h6 class="ls-1 mb-1">10 most recent posts</h6>
+              </div>
+              <div class="col text-right">
+                <a href="/allposts" class="btn btn-sm btn-primary">View all posts</a>
+              </div>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <!-- Projects table -->
+            <table class="table align-items-center table-flush table-sm  table-hover">
+              <thead class="thead-colour">
+                <tr>
+                  <th scope="col" style="width: 10%"></th>
+                  <th scope="col">Post</th>
+                  <th scope="col" style="width: 10%">Likes</th>
+                  <th scope="col" style="width: 10%">Comments</th>
+                  <th scope="col" style="width: 10%">Engagement</th>
+                  <th scope="col" style="width: 10%">Impressions</th>
+                  <th scope="col" style="width: 10%">Reaches</th>
+                  <th scope="col" style="width: 10%">Saves</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for post in recentInsights %}
+
+                <tr>
+                  <td>
+                    {% if post.media_type == 'IMAGE' or post.media_type == 'CAROUSEL_ALBUM' %}
+                    <a href="{{ post.permalink }}" target="_blank"><img src="{{ post.media_url }}"
+                        class="rounded img-fluid float-left"></a>
+                    {% else %}
+                    <a href="{{ post.permalink }}" target="_blank"><img src="{{ post.thumbnail_url }}"
+                        class="rounded img-fluid float-left"></a>
+                    {% endif %}
+                  </td>
+                  <td>
+                    <a href="{{ post.permalink }}" target=”_blank><b>{{ moment(post.timestamp).format('LL') }}</b> {{ moment(post.timestamp).format('hh:mm A') }}</a><br>
+                      {{ post.media_type }}<br>
+                      <span class="table-category">{{ post.category.upper() }} </span>
+                    </a>
+                  </td>
+                  <td>
+                    {{post.count_like}}
+                  </td>
+                  <td>
+                    {{post.count_comments}}
+                  </td>
+                  <td>
+                    {{post.count_engagement}}
+                  </td>
+                  <td>
+                    {{post.count_impressions}}
+                  </td>
+                  <td>
+                    {{post.count_reach}}
+                  </td>
+                  <td>
+                    {{post.count_saved}}
+                  </td>
+                </tr>
+
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-xl-4">
+
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header border-0 bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h3 class="mb-0 thick-heading">Recent Updates</h3>
+                  </div>
+                </div>
+              </div>
+              <div class="table-responsive">
+                <!-- Projects table -->
+                <table class="table align-items-center">
+                  <thead class="thead-colour">
+                    <tr>
+                      <th scope="col" style="width: 95%">Latest story expiry, comments and mentions</th>
+                      <th scope="col" style="width: 5%"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    
+                    {% for update in recentUpdates %}
+                    <tr>
+                      <td>
+                        {% if update.hook_type == 'Comment' %}
+                        There is a new <b>comment</b> on a Memori post.
+
+                        {% elif update.hook_type == 'Mention' %}
+                        Memori was <b>mentioned</b> in a post.
+
+                        {% else %}
+                        <b>Story</b> posted just expired, insights are now available.
+
+                        {% endif %}
+                      </td>
+                      <td>
+                      <b>{{ moment(update.timestamp).fromNow() }}</b><br>
+                      {{ update.timestamp.strftime('%d %b') }}
+                      </td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="card">
+              <div class="card-header bg-transparent">
+                <div class="row align-items-center">
+                  <div class="col">
+                    <h3 class="mb-0 thick-heading">Profile</h3>
+                    <h6 class="ls-1 mb-1">Latest profile biography</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body profile-container">
+                <div class="row align-items-center justify-content-center">
+                  <div class="col-md-5">
+                    <img alt="ig_profile_picture" class="img-fluid rounded img-thumbnail" src="{{ bd.profilePictureUrl }}">
+                  </div>
+                </div>
+                <div class="row  justify-content-center">
+                  {{ bd.biography }}
+                  <a class="homelink" href="{{ bd.website }}" target="_blank">{{ bd.website }}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        
+      </div>
+    </div>
+    <hr class="my-3">
+    <br>
+    <div class="row">
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">YESTERDAY ({{yesterdayStats.date}})</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">New Followers</h5>
+                    <span class="h2 less-black">{{ yesterdayStats.numDailyFollowers }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <br>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">YESTERDAY ({{yesterdayStats.date}})</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">Profile Visits</h5>
+                    <span class="h2 less-black">{{ yesterdayStats.numDailyVisits }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <br>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">YESTERDAY ({{yesterdayStats.date}})</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">Reach</h5>
+                    <span class="h2 mb-0 less-black">{{ yesterdayStats.numDailyReach }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <br>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-2 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <h6 class="text-uppercase text-muted ls-1 mb-1">YESTERDAY ({{yesterdayStats.date}})</h6>
+                    <h5 class="card-title text-uppercase text-muted mb-0 thick-heading">Impressions</h5>
+                    <span class="h2 mb-0 less-black">{{ yesterdayStats.numDailyImpressions }}</span>
+                  </div>
+                </div>
+                <p class="mt-3 mb-0 text-sm">
+                  <span class="text-nowrap"><br></span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="main-content" id="panel">
+    <div class="header pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 main-title d-inline-block mb-0">Memori Analytics</h6>
+              <h6 class="text-uppercase ls-1 mb-1">Daily Account Statistics</h6>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="card-header border-0">
+              <div class="row align-items-center">
+                <div class="col-md-6">
+                  <h3 class="mb-0 thick-heading text-left">Daily Stats</h3>
+                  <h6 class="ls-1 mb-1">Showing all daily stats history, since tracking started (Refreshes daily at 3pm)</h6>
+                </div>
+              </div>
+            </div>
+            <div class="table-responsive-sm">
+              <!-- Projects table -->
+              <table class="table align-items-center table-flush table-sm fixed-table">
+                <thead>
+                  <tr>
+                    <th scope="col" style="width: 1%"></th>
+                    <th scope="col">Date</th>
+                    <th scope="col" style="width: 5%">Time</th>
+                    <th scope="col" style="width: 5%">Following</th>
+                    <th scope="col" style="width: 5%">Followers</th>
+                    <th scope="col" style="width: 5%">No. of Posts</th>
+                    <th scope="col" style="width: 5%">Profile Visits</th>
+                    <th scope="col" style="width: 5%">New Followers</th>
+                    <th scope="col" style="width: 5%">Reach</th>
+                    <th scope="col" style="width: 5%">Impressions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% set count = namespace(value=1) %}
+                  {% for stat in daily %}
+                  <tr>
+                    <td>
+                    </td>
+                    <td>
+                        {{ moment(stat.date).format('LL') }}
+                    </td>
+                    <td>
+                      {{ moment(stat.time).format('hh:mm A') }}
+                  </td>
+                    <td>
+                        {{stat.numFollowing }}
+                    </td>
+                    <td>
+                        {{stat.numFollowers }}
+                    </td>
+                    <td>
+                        {{stat.numPosts}}
+                    </td>
+                    <td>
+                        {{stat.numDailyVisits}}
+                    </td>
+                    <td>
+                        {{stat.numDailyFollowers}}
+                    </td>
+                    <td>
+                        {{stat.numDailyReach}}
+                    </td>
+                    <td>
+                        {{ stat.numDailyImpressions}}
+                    </td>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}
