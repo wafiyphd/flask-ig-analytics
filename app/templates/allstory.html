@@ -39,8 +39,10 @@
                     <th scope="col" style="width: 5%">Reach</th>
                     <th scope="col" style="width: 5%">Taps Forward</th>
                     <th scope="col" style="width: 5%">Taps Back</th>
-                    <th id="sl" scope="col" style="width: 5%">Exits</th>
-                    <th id="nm" scope="col" style="width: 5%">Replies</th>
+                    <th scope="col" style="width: 5%">Exits</th>
+                    <th scope="col" style="width: 5%">Replies</th>
+                    <th scope="col" style="width: 5%">Total</th>
+
                   </tr>
                 </thead>
                 <tbody>
@@ -73,6 +75,9 @@
                     </td>
                     <td>
                       {{post.count_replies}}
+                    </td>
+                    <td>
+                      {{ post.count_exits + post.count_tapsback + post.count_tapsforward  }}
                     </td>
 
                   {% endfor %}

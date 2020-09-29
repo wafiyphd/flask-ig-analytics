@@ -40,15 +40,16 @@
                   <tr>
                     <th scope="col" style="width: 1%">No</th>
                     <th scope="col" style="width: 8%"></th>
-                    <th scope="col">Timestamp</th>
-                    <th scope="col" style="width: 5%">Type</th>
-                    <th scope="col" style="width: 5%">Category</th>
+                    <th scope="col" style="width: 25%">Timestamp</th>
+                    <th scope="col" style="width: 15%">Type</th>
+                    <th scope="col" style="width: 15%">Category</th>
+                    <th scope="col" style="width: 5%">ER</th>
                     <th scope="col" style="width: 5%">Likes</th>
                     <th scope="col" style="width: 5%">Comments</th>
                     <th scope="col" style="width: 5%">Engagement</th>
-                    <th scope="col" style="width: 5%">Impressions</th>
-                    <th scope="col" style="width: 5%">Reaches</th>
-                    <th scope="col" style="width: 5%">Saves</th>
+                    <th scope="col" style="width: 5%">Impression</th>
+                    <th scope="col" style="width: 5%">Reach</th>
+                    <th scope="col" style="width: 5%">Saved</th>
                     <th scope="col" style="width: 5%">Video Views</th>
                   </tr>
                 </thead>
@@ -76,7 +77,10 @@
                       {{post.media_type}}
                     </td>
                     <td>
-                      {{post.category.upper() }}
+                      <b>{{post.category.upper() }}</b>
+                    </td>
+                    <td>
+                      {{ '%0.2f'|format( ( ( (post.count_like + post.count_comments + post.count_saved) / (latestinfo.numFollowers)) * 100) ) }}%
                     </td>
                     <td>
                       {{post.count_like}}

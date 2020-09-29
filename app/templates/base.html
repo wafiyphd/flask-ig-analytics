@@ -53,7 +53,10 @@
     <script>
         $(document).ready( function () {
             $('#posts_table').DataTable({
-                paging: false
+                paging: false,
+                buttons: [
+                    'copy', 'excel', 'pdf'
+                ],
             });
         } );
     </script>
