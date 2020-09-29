@@ -154,3 +154,26 @@ h1,h2,h3,h4,h5, h6 {
 .btn-fetch {
 	margin: 20px auto;
 }
+
+.active-pink-2 input.form-control[type=text]:focus:not([readonly]) {
+	border-bottom: 1px solid #f48fb1;
+	box-shadow: 0 1px 0 0 #f48fb1;
+  }
+
+.dataTables_filter input.form-control {
+	border: 0 !important;
+	border-bottom: 2px solid #f48fb1 !important;
+	outline: none !important;
+	border-radius: 0px !important;
+}
+
+.dataTables_filter input.form-control:focus, .dataTables_filter input.form-control:active  {
+	outline: none !important;
+}
+
+.dataTables_filter label {
+	font-size: 12px !important;
+	padding-top: 15px !important;
+	padding-right: 25px !important;
+
+}

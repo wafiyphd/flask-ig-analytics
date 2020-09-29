@@ -30,7 +30,7 @@
             </div>
             <div class="table-responsive-sm">
               <!-- Projects table -->
-              <table class="table align-items-center table-flush table-sm fixed-table  table-hover">
+              <table id="posts_table" class="table table-striped align-items-center table-sm fixed-table table-hover">
                 <thead>
                   <tr>
                     <th scope="col" style="width: 1%">No</th>
@@ -53,9 +53,8 @@
                       {% set count.value = count.value + 1 %}
                     </td>
                     <td>
-                      <a href="{{ post.permalink }}" target=”_blank><b>{{ moment(post.timestamp).format('LL') }}</b><br>
+                      <b>{{ moment(post.timestamp).format('LL') }}</b><br>
                         {{ moment(post.timestamp).format('hh:mm A') }}
-                      </a>
                     </td>
                     <td>
                       {{post.count_impressions }}

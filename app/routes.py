@@ -11,7 +11,7 @@ import scriptAllInsights as fetchAllPosts
 
 today = date.today()
 now = datetime.today().time()
-dailyStatsCutoff = now.replace(hour=7, minute=00, second=00)
+dailyStatsCutoff = now.replace(hour=15, minute=00, second=00)
 if (now < dailyStatsCutoff):
     yesterday = today - timedelta(days=2)
     print("two")
