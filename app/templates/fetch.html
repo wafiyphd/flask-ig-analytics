@@ -39,7 +39,7 @@
                 <b>Data latest as of:</b> {{ moment(latestrecent.timestamp).format('LL') }}</b> {{ moment(latestrecent.timestamp).format('hh:mm A') }}
                 <hr class="my-3">
 
-                <a href="/fetch_all" class="btn btn-sm btn-fetch">Fetch All Posts and Insights</a>
+                <a href="/fetch_all" class="btn btn-sm btn-fetch disabled">Fetch All Posts and Insights</a>
                 Fetch all of the posts from the account, along with their insights, such as impressions, engagement, reach, etc. This process will take at least around 1:30-2 minutes.<br><br>
                 <b>Data latest as of:</b> {{ moment(latestall.timestamp).format('LL') }}</b> {{ moment(latestall.timestamp).format('hh:mm A') }}
             </div>
