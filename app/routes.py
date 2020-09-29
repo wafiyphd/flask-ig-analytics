@@ -140,7 +140,7 @@ def respond():
             if contentReceived == 'comments':
                 comment_id = entry['changes'][0]['value']['id']
                 text = entry['changes'][0]['value']['text']
-                data = Webhooks(dt, "Comment", comment_id, text, 0,0)
+                data = Webhooks(time, "Comment", comment_id, text, 0,0)
 
                 try:
                     db.session.add(data)
@@ -153,7 +153,7 @@ def respond():
             elif contentReceived == 'mentions':
                 comment_id = entry['changes'][0]['value']['comment_id']
                 media_id = entry['changes'][0]['value']['media_id']
-                data = Webhooks(dt, "Mention", comment_id, "", media_id,0)
+                data = Webhooks(time, "Mention", comment_id, "", media_id,0)
 
                 try:
                     db.session.add(data)
@@ -173,7 +173,7 @@ def respond():
                 replies = entry['changes'][0]['value']['replies']
                 
                 try:
-                    data = AllStories(media_id, dt, impressions, reach, taps_forward, taps_back,
+                    data = AllStories(media_id, time, impressions, reach, taps_forward, taps_back,
                                 exits, replies)  
                     db.session.add(data)
                     db.session.commit()
