@@ -224,7 +224,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    
+                    {% if recentUpdates %}
                     {% for update in recentUpdates %}
                     <tr>
                       <td>
@@ -245,6 +245,7 @@
                       </td>
                     </tr>
                     {% endfor %}
+                    {% endif %}
                   </tbody>
                 </table>
               </div>

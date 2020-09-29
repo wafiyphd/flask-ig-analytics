@@ -44,6 +44,7 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {% if allStory %}
                   {% set count = namespace(value=1) %}
                   {% for post in allStory %}
                   <tr>
@@ -76,6 +77,7 @@
                     </td>
 
                   {% endfor %}
+                  {% endif %}
                 </tbody>
               </table>
             </div>
