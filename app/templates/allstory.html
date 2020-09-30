@@ -28,62 +28,64 @@
                 </div>
               </div>
             </div>
-            <div class="table-responsive-sm">
-              <!-- Projects table -->
-              <table id="posts_table" class="table table-striped align-items-center table-sm fixed-table table-hover">
-                <thead>
-                  <tr>
-                    <th scope="col" style="width: 1%">No</th>
-                    <th scope="col">Timestamp</th>
-                    <th scope="col" style="width: 5%">Impressions</th>
-                    <th scope="col" style="width: 5%">Reach</th>
-                    <th scope="col" style="width: 5%">Taps Forward</th>
-                    <th scope="col" style="width: 5%">Taps Back</th>
-                    <th scope="col" style="width: 5%">Exits</th>
-                    <th scope="col" style="width: 5%">Replies</th>
-                    <th scope="col" style="width: 5%">Total</th>
+            <div class="table-scroll-x">
+              <div class="table">
+                <!-- Projects table -->
+                <table id="posts_table" class="table table-striped align-items-center table-sm fixed-table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col" style="width: 1%">No</th>
+                      <th scope="col">Timestamp</th>
+                      <th scope="col" style="width: 5%">Impressions</th>
+                      <th scope="col" style="width: 5%">Reach</th>
+                      <th scope="col" style="width: 5%">Taps Forward</th>
+                      <th scope="col" style="width: 5%">Taps Back</th>
+                      <th scope="col" style="width: 5%">Exits</th>
+                      <th scope="col" style="width: 5%">Replies</th>
+                      <th scope="col" style="width: 5%">Total</th>
 
-                  </tr>
-                </thead>
-                <tbody>
-                  {% if allStory %}
-                  {% set count = namespace(value=1) %}
-                  {% for post in allStory %}
-                  <tr>
-                    <td>
-                      {{ count.value }}
-                      {% set count.value = count.value + 1 %}
-                    </td>
-                    <td>
-                      <b>{{ moment(post.timestamp).format('LL') }}</b><br>
-                        {{ moment(post.timestamp).format('hh:mm A') }}
-                    </td>
-                    <td>
-                      {{post.count_impressions }}
-                    </td>
-                    <td>
-                      {{post.count_reach }}
-                    </td>
-                    <td>
-                      {{post.count_tapsforward}}
-                    </td>
-                    <td>
-                      {{post.count_tapsback}}
-                    </td>
-                    <td>
-                      {{post.count_exits}}
-                    </td>
-                    <td>
-                      {{post.count_replies}}
-                    </td>
-                    <td>
-                      {{ post.count_exits + post.count_tapsback + post.count_tapsforward  }}
-                    </td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% if allStory %}
+                    {% set count = namespace(value=1) %}
+                    {% for post in allStory %}
+                    <tr>
+                      <td>
+                        {{ count.value }}
+                        {% set count.value = count.value + 1 %}
+                      </td>
+                      <td>
+                        <b>{{ moment(post.timestamp).format('LL') }}</b><br>
+                          {{ moment(post.timestamp).format('hh:mm A') }}
+                      </td>
+                      <td>
+                        {{post.count_impressions }}
+                      </td>
+                      <td>
+                        {{post.count_reach }}
+                      </td>
+                      <td>
+                        {{post.count_tapsforward}}
+                      </td>
+                      <td>
+                        {{post.count_tapsback}}
+                      </td>
+                      <td>
+                        {{post.count_exits}}
+                      </td>
+                      <td>
+                        {{post.count_replies}}
+                      </td>
+                      <td>
+                        {{ post.count_exits + post.count_tapsback + post.count_tapsforward  }}
+                      </td>
 
-                  {% endfor %}
-                  {% endif %}
-                </tbody>
-              </table>
+                    {% endfor %}
+                    {% endif %}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </div>
         </div>
