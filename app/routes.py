@@ -25,7 +25,7 @@ def index():
 
     latestInfo = AccountInfo.query.order_by(AccountInfo.date.desc(), AccountInfo.time.desc()).first()
     recentInsights = AllPosts.query.order_by(AllPosts.timestamp.desc()).limit(10).all()
-    recentHooks = Webhooks.query.order_by(Webhooks.timestamp.desc()).limit(6).all()
+    recentHooks = Webhooks.query.order_by(Webhooks.timestamp.desc()).limit(10).all()
     yesterdaystats = DailyFetch.query.filter(DailyFetch.date == yesterday).first()
 
     latestdaily = FetchLog.query.filter(FetchLog.fetch_type == 'Account Info').order_by(FetchLog.timestamp.desc()).first()

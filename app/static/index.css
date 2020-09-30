@@ -181,7 +181,7 @@ h1,h2,h3,h4,h5, h6 {
 
 .table-custom-scrollbar {
 	position: relative;
-	height: 700px;
+	height: 750px;
 	overflow: auto;
 	}
 
@@ -191,18 +191,19 @@ display: block;
 
 .small-table-custom-scrollbar {
 	position: relative;
-	height: 355px;
+	height: 385px;
 	overflow: auto;
 	}
 
 .scrollable-height {
 	position: relative;
-	height: 260px;
+	height: 280px;
 	overflow: auto;
 }
 
 ::-webkit-scrollbar-track {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 	background-color: #F5F5F5;
 	border-radius: 10px;	
 }
@@ -216,6 +217,7 @@ display: block;
 ::-webkit-scrollbar-thumb {
 	border-radius: 10px;
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+	box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 	background-image: -webkit-gradient(linear, left bottom, left top, from(#ff9a9e), color-stop(99%, #fecfef),
 	to(#fecfef));
 	background-image: -webkit-linear-gradient(bottom, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
@@ -224,4 +226,8 @@ display: block;
 
 .dataTables_info {
 	padding: 1rem 1rem !important;
+}
+
+.small-text {
+	font-size: 0.7em !important;
 }
