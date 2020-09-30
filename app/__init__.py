@@ -22,7 +22,7 @@ def getCreds():
     creds = dict()
 
     creds['graph_domain'] = 'https://graph.facebook.com/'
-    creds['graph_version'] = 'v6.0'
+    creds['graph_version'] = 'v8.0'
     creds['endpoint_base'] = creds['graph_domain'] + creds['graph_version'] + '/' 
     creds['debug'] = 'no'
 

@@ -220,3 +220,7 @@ display: block;
 	background-image: -webkit-linear-gradient(bottom, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
 	background-image: linear-gradient(to top, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
 }
+
+.dataTables_info {
+	padding: 1rem 1rem !important;
+}
