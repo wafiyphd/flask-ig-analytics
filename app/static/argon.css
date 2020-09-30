@@ -65,7 +65,6 @@ html
 {
     font-family: sans-serif;
     line-height: 1.15;
-
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -87,14 +86,10 @@ section
 body
 {
     font-family: Open Sans, sans-serif;
-    font-size: 1rem;
+    font-size: 0.8rem !important;
     font-weight: 400;
-    line-height: 1.5;
-
+    line-height: 1.2;
     margin: 0;
-
-    text-align: left;
-
     color: #525f7f;
     background-color: #f8f9fe;
 }
@@ -126,7 +121,7 @@ h6
 p
 {
     margin-top: 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 abbr[title],
@@ -217,15 +212,11 @@ sup
 a
 {
     text-decoration: none;
-
-    color: #5e72e4;
     background-color: transparent;
 }
 a:hover
 {
     text-decoration: none; 
-
-    color: #233dd2;
 }
 
 a:not([href])
@@ -253,7 +244,6 @@ samp
 pre
 {
     overflow: auto; 
-
     margin-top: 0;
     margin-bottom: 1rem;
 }
@@ -266,14 +256,12 @@ figure
 img
 {
     vertical-align: middle;
-
     border-style: none;
 }
 
 svg
 {
     overflow: hidden;
-
     vertical-align: middle;
 }
 
@@ -286,11 +274,8 @@ caption
 {
     padding-top: 1rem;
     padding-bottom: 1rem;
-
     caption-side: bottom; 
-
     text-align: left;
-
     color: #8898aa;
 }
 
@@ -302,7 +287,6 @@ th
 label
 {
     display: inline-block;
-
     margin-bottom: .5rem;
 }
 
