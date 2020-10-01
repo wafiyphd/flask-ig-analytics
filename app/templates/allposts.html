@@ -41,8 +41,8 @@
                       <th scope="col" style="width: 1%">No</th>
                       <th scope="col" style="width: 8%"></th>
                       <th scope="col" style="width: 25%">Timestamp</th>
-                      <th scope="col" style="width: 15%">Type</th>
                       <th scope="col" style="width: 15%">Category</th>
+                      <th scope="col" style="width: 5%">Type</th>
                       <th scope="col" style="width: 5%">ER</th>
                       <th scope="col" style="width: 5%">Likes</th>
                       <th scope="col" style="width: 5%">Comments</th>
@@ -68,16 +68,20 @@
                         {% else %}
                         <a href="{{ post.permalink }}" target="_blank"><img src="{{ post.thumbnail_url }}"
                             class="rounded img-fluid float-left content_section"></a>
-                        {% endif %}
+                            {% endif %}
                       </td>
                       <td>
-                        <a href="{{ post.permalink }}" target=”_blank><b>{{ moment(post.timestamp).format('LL') }}</b> {{ moment(post.timestamp).format('hh:mm A') }}</a>
-                      </td>
-                      <td>
-                        {{post.media_type}}
+                        <a href="{{ post.permalink }}" target=”_blank><b>{{ moment(post.timestamp).format('LL') }}</b> ({{ moment(post.timestamp).format('ddd') }}) {{ moment(post.timestamp).format('hh:mm A') }}</a>
                       </td>
                       <td>
                         <b>{{post.category.upper() }}</b>
+                      </td>
+                      <td>
+                        {% if post.media_type == 'CAROUSEL_ALBUM' %}
+                        CAROUSEL
+                        {% else %}
+                        {{post.media_type}}
+                        {% endif %}
                       </td>
                       <td>
                         {{ '%0.2f'|format( ( ( (post.count_like + post.count_comments + post.count_saved) / (latestinfo.numFollowers)) * 100) ) }}%

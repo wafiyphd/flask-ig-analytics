@@ -55,8 +55,7 @@
                         {% set count.value = count.value + 1 %}
                       </td>
                       <td>
-                        <b>{{ moment(post.timestamp).format('LL') }}</b><br>
-                          {{ moment(post.timestamp).format('hh:mm A') }}
+                       <b>{{ moment(post.timestamp).format('LL') }}</b> ({{ moment(post.timestamp).format('ddd') }}) {{ moment(post.timestamp).format('hh:mm A') }}
                       </td>
                       <td>
                         {{post.count_impressions }}
