@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="main-content" id="panel">
+    <div class="header pb-6">
+      <div class="container-fluid">
+        <div class="header-body">
+          <div class="row align-items-center py-4">
+            <div class="col-lg-6 col-7">
+              <h6 class="h2 main-title d-inline-block mb-0">Memori Analytics</h6>
+              <h6 class="text-uppercase ls-1 mb-1">Test</h6>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--6">
+        <div class="container bg-white">
+            <div class="row">
+                <div class="col-xl-12">
+                    <canvas id="myCanvas" width="600" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+      <br>
+{% endblock %}

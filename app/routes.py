@@ -43,6 +43,12 @@ def index():
         latestrecent = latestrecent
     )
 
+@app.route('/test')
+def test():
+    return render_template('test.html', 
+        title='Test'
+    )
+
 @app.route('/allposts/')
 def allposts():
 

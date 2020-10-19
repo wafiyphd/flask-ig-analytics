@@ -84,7 +84,7 @@
                         {% endif %}
                       </td>
                       <td>
-                        {{ '%0.2f'|format( ( ( (post.count_like + post.count_comments + post.count_saved) / (latestinfo.numFollowers)) * 100) ) }}%
+                        {{  ( ( (post.count_like + post.count_comments + post.count_saved) / (latestinfo.numFollowers)) * 100)|round|int  }}%
                       </td>
                       <td>
                         {{post.count_like}}

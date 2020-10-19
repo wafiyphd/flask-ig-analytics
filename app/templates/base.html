@@ -60,6 +60,34 @@
             });
         } );
     </script>
+    <script src="https://d3js.org/d3.v6.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script>
+        d3
+        .csv('../static/allcases.csv')
+        .then(makeChart);
+
+        function makeChart(data) {
+            var country = data.map(function(d) {return d.province;});
+            var value = data.map(function(d) {return d.cumulative_cases;});
+            new Chart(document.getElementById("myCanvas"), {
+                type: 'line',
+                // The data for our dataset
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                    datasets: [{
+                        label: 'My First dataset',
+                        backgroundColor: 'rgb(255, 99, 132)',
+                        borderColor: 'rgb(255, 99, 132)',
+                        data: [0, 10, 5, 2, 20, 30, 45]
+                    }]
+                },
+
+                // Configuration options go here
+                options: {}
+            });
+        }
+    </script>
     
 </head>
 
