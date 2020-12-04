@@ -43,6 +43,10 @@ def index():
         latestrecent = latestrecent
     )
 
+@app.route('/awake', methods=['GET'])
+def awake():
+    return Response("Hello")
+
 @app.route('/test')
 def test():
     return render_template('test.html', 
@@ -52,18 +56,18 @@ def test():
 @app.route('/allposts/')
 def allposts():
 
-        allPosts = AllPosts.query.order_by(AllPosts.timestamp.desc()).all()
-        latestall = FetchLog.query.filter(FetchLog.fetch_type == 'All Insights').order_by(FetchLog.timestamp.desc()).first()
-        latestInfo = AccountInfo.query.order_by(AccountInfo.date.desc(), AccountInfo.time.desc()).first()
+    allPosts = AllPosts.query.order_by(AllPosts.timestamp.desc()).all()
+    latestall = FetchLog.query.filter(FetchLog.fetch_type == 'All Insights').order_by(FetchLog.timestamp.desc()).first()
+    latestInfo = AccountInfo.query.order_by(AccountInfo.date.desc(), AccountInfo.time.desc()).first()
 
-        return render_template('allposts.html', 
-            allPosts=allPosts,
-            message=request.args.get('message'), 
-            alerttype=request.args.get('alerttype'),
-            title='Posts',
-            latestall= latestall,
-            latestinfo = latestInfo
-        )
+    return render_template('allposts.html', 
+        allPosts=allPosts,
+        message=request.args.get('message'), 
+        alerttype=request.args.get('alerttype'),
+        title='Posts',
+        latestall= latestall,
+        latestinfo = latestInfo
+    )
 
 @app.route('/allstory/')
 def allstory():

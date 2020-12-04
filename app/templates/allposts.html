@@ -34,14 +34,14 @@
                 </div>
               </div>
             </div>
-            <div class="table-scroll-x">
+            <div style="overflow-y: auto; height: 80vh;">
                 <table id="posts_table" class="table table-striped align-items-center table-sm fixed-table table-hover">
                   <thead>
                     <tr>
                       <th scope="col" style="width: 1%">No</th>
-                      <th scope="col" style="width: 8%"></th>
+                      <th scope="col" style="width: 5%"></th>
                       <th scope="col" style="width: 25%">Timestamp</th>
-                      <th scope="col" style="width: 15%">Category</th>
+                      <th scope="col" style="width: 5%">Category</th>
                       <th scope="col" style="width: 5%">Type</th>
                       <th scope="col" style="width: 5%">ER</th>
                       <th scope="col" style="width: 5%">Likes</th>
@@ -62,13 +62,8 @@
                         {% set count.value = count.value + 1 %}
                       </td>
                       <td>
-                        {% if post.media_type == 'IMAGE' or post.media_type == 'CAROUSEL_ALBUM' %}
-                        <a href="{{ post.permalink }}" target="_blank"><img src="{{ post.media_url }}"
-                            class="rounded img-fluid float-left content_section"></a>
-                        {% else %}
                         <a href="{{ post.permalink }}" target="_blank"><img src="{{ post.thumbnail_url }}"
                             class="rounded img-fluid float-left content_section"></a>
-                            {% endif %}
                       </td>
                       <td>
                         <a href="{{ post.permalink }}" target=”_blank><b>{{ moment(post.timestamp).format('LL') }}</b> ({{ moment(post.timestamp).format('ddd') }}) {{ moment(post.timestamp).format('hh:mm A') }}</a>

@@ -77,15 +77,10 @@ async def getAllPosts(session):
             num_comments = post["comments_count"]
             post_caption = post["caption"]
 
-            try:
-                media_url = post["media_url"]
-            except KeyError:
-                pass
-
-            try:
-                thumbnail_url = post["thumbnail_url"]
-            except KeyError:
-                pass
+            thumbnailfetchurl = "https://graph.facebook.com/" + params['graph_version'] + "/instagram_oembed?url=" + post_link + "&maxwidth=320&fields=thumbnail_url%2Cauthor_name%2Cprovider_name%2Cprovider_url&access_token=" + params['access_token']
+            async with session.get(thumbnailfetchurl) as response:
+                json_response = await response.json()
+                thumbnail_url= json_response["thumbnail_url"];
 
             if db.session.query(AllPosts).filter(AllPosts.post_id == post_id).count() == 0:
                 data = AllPosts(post_id, dt, post_type, post_category, post_link,
@@ -94,6 +89,7 @@ async def getAllPosts(session):
                 db.session.commit()
             else:
                 db.session.query(AllPosts).filter(AllPosts.post_id == post_id).update({
+                    AllPosts.thumbnail_url: thumbnail_url,
                     AllPosts.count_comments: num_comments,
                     AllPosts.count_like: num_likes,
                     AllPosts.category: post_category,

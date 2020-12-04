@@ -163,13 +163,8 @@
 
                   <tr>
                     <td>
-                      {% if post.media_type == 'IMAGE' or post.media_type == 'CAROUSEL_ALBUM' %}
-                      <a href="{{ post.permalink }}" target="_blank"><img src="{{ post.media_url }}"
-                          class="rounded img-fluid float-left"></a>
-                      {% else %}
                       <a href="{{ post.permalink }}" target="_blank"><img src="{{ post.thumbnail_url }}"
                           class="rounded img-fluid float-left"></a>
-                      {% endif %}
                     </td>
                     <td>
                       <a href="{{ post.permalink }}" target=”_blank><b>{{ moment(post.timestamp).format('LL') }}</b> {{ moment(post.timestamp).format('hh:mm A') }}</a><br>
@@ -269,12 +264,8 @@
                 </div>
               </div>
               <div class="card-body profile-container scrollable-height table-wrapper-scroll-y">
-                <div class="row align-items-center justify-content-center">
-                  <div class="col-md-4">
-                    <img alt="ig_profile_picture" class="img-fluid rounded img-thumbnail" src="{{ bd.profilePictureUrl }}">
-                  </div>
-                </div>
                 <div class="row  justify-content-center">
+                  <br>
                   {{ bd.biography }}
                   <a class="homelink" href="{{ bd.website }}" target="_blank">{{ bd.website }}</a>
                 </div>
